@@ -1,19 +1,19 @@
 :root {
-    --primary-color: #FB9B8B; /* Soft Coral Pink */
+    --primary-color: #00bcd4; /* Cyan */
     --text-color: #333;
-    --bg-color: #E2CCCC; /* Light Beige */
-    --accent-color: #077B88; /* Teal */
-    --secondary-color: #6BB8B8; /* Muted Cyan */
-    --tertiary-color: #3D6C8A; /* Slate Blue */
+    --bg-color: #f5f5f5; /* Light Gray */
+    --accent-color: #ff9800; /* Orange */
+    --secondary-color: #607d8b; /* Navy */
+    --tertiary-color: #3f51b5; /* Indigo */
 }
 
 .dark-theme {
-    --primary-color: #046475; /* Dark Teal */
-    --text-color: #ffffff;
-    --bg-color: #1D3333; /* Deep Greenish Gray */
-    --accent-color: #F78877; /* Muted Warm Red */
-    --secondary-color: #944747; /* Dark Brick Red */
-    --tertiary-color: #C29376; /* Deep Warm Brown */
+    --primary-color: #00bcd4; /* Cyan */
+    --text-color: #e0e0e0; /* Light Gray */
+    --bg-color: #212121; /* Deep Charcoal */
+    --accent-color: #ff9800; /* Orange */
+    --secondary-color: #757575; /* Lighter Gray */
+    --tertiary-color: #ff5722; /* Deep Orange */
 }
 
 * {
@@ -23,29 +23,58 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--bg-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background: var(--bg-color);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar styles */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 3px solid var(--bg-color);
 }
 
 nav {
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 2rem;
     position: fixed;
     width: 100%;
-    background-color: var(--bg-color);
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Add this new class for scroll effect if needed */
+.nav-scrolled {
+    background-color: rgba(245, 245, 245, 0.8); /* var(--bg-color) with opacity */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Update dark theme nav background when scrolled */
+.dark-theme .nav-scrolled {
+    background-color: rgba(33, 33, 33, 0.8); /* var(--bg-color) from dark theme with opacity */
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
-    font-style: italic;
-    font-weight: 400;
+    font-weight: 700;
     color: var(--tertiary-color);
 }
 
@@ -60,9 +89,9 @@ nav ul {
 }
 
 nav ul li a {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-color);
     text-decoration: none;
     transition: color 0.3s ease;
@@ -73,16 +102,19 @@ nav ul li a:hover {
 }
 
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 1rem;
+    padding: 74px 1rem 1rem; /* Added top padding to account for navigation bar */
+    position: relative;
 }
 
 .animate-text {
+    font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
     margin-bottom: 1rem;
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
@@ -91,6 +123,7 @@ nav ul li a:hover {
 }
 
 .typewriter {
+    font-family: 'Lato', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 2rem;
     min-height: 2em;
@@ -110,7 +143,7 @@ nav ul li a:hover {
     transition: color 0.3s ease;
 }
 
-social-links a:hover {
+.social-links a:hover {
     color: var(--primary-color);
 }
 
@@ -121,4 +154,250 @@ social-links a:hover {
     cursor: pointer;
     padding: 0.5rem;
     color: var(--primary-color);
+}
+
+.introduction {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    padding: 74px 1rem 1rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.introduction .about-content {
+    flex: 1;
+    padding-right: 2rem;
+    margin-left: 20%;
+}
+
+.introduction h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.introduction p {
+    max-width: 800px;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+}
+
+.experience, .contact {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 74px 1rem 1rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.experience h2, .contact h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experience p, .contact p {
+    max-width: 800px;
+    margin: 1rem auto;
+    font-size: 1.2rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: var(--primary-color);
+    border: 4px solid var(--bg-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -16px;
+}
+
+.timeline-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.timeline-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.timeline-item p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.projects-posts {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 74px 1rem 1rem;
+}
+
+.projects, .blogs {
+    flex: 1;
+    margin: 0 1rem;
+    padding: 2rem;
+    background: var(--bg-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.projects h3, .blogs h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.projects p, .blogs p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.contact-container {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.contact-details {
+    margin-bottom: 20px;
+}
+
+.contact-details p {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: 0.3s;
+    outline: none;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.contact-form button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .contact-container {
+        width: 90%;
+    }
+}
+
+.contact-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.contact-links a:hover {
+    color: var(--primary-color);
+}
+
+.spotify-card {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
