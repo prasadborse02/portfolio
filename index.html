@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geek Nemesis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Lato:wght@400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Lato:wght@400&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
@@ -13,7 +17,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Prasad Here</div>
+            <div class="logo">Geek Nemesis</div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#introduction">Introduction</a></li>
@@ -28,8 +32,7 @@
     <main>
         <section id="home" class="hero">
             <h1 class="animate-text">Welcome to Prasad's Portfolio!</h1>
-            <p class="typewriter" 
-                data-light-text="Just another genius in the making!"
+            <p class="typewriter" data-light-text="Just another genius in the making!"
                 data-dark-text="Just another genius operating in the shadows.">
                 Just another genius in the making!
             </p>
@@ -44,25 +47,27 @@
             <div class="about-content">
                 <h2>About Me</h2>
                 <p>
-                    Hey there! I’m Prasad, a software engineer who thrives on problem-solving, efficiency, and mastering fundamentals. I work primarily with Python and Node.js, building scalable systems, optimizing performance, and tackling complex backend challenges. Whether it’s data processing, APIs, or authentication flows, I enjoy breaking things down and making them better.
+                    Hey there! I’m Prasad, a software engineer who thrives on problem-solving, efficiency, and mastering
+                    fundamentals. I work primarily with Python and Node.js, building scalable systems, optimizing
+                    performance, and tackling complex backend challenges. Whether it’s data processing, APIs, or
+                    authentication flows, I enjoy breaking things down and making them better.
                 </p>
                 <p>
                     But let’s step away from the keyboard for a moment—who am I outside of code?
                 </p>
                 <p>
-                    I’m someone who loves diving deep into tech, but also believes in balance. Whether it’s exploring music, tinkering with new ideas, or just enjoying a good conversation, I’m always up for something interesting.
+                    I’m someone who loves diving deep into tech, but also believes in balance. Whether it’s exploring
+                    music, tinkering with new ideas, or just enjoying a good conversation, I’m always up for something
+                    interesting.
                 </p>
                 <p>
                     Oh, and about that music—if you want to know my taste, just hit play on the card next to me.
                 </p>
             </div>
             <div class="spotify-card">
-                <iframe style="border-radius:12px" 
-                    src="https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC?utm_source=generator" 
-                    width="320" 
-                    height="80" 
-                    frameborder="0" 
-                    allowfullscreen 
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC?utm_source=generator" width="320"
+                    height="80" frameborder="0" allowfullscreen
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
                 </iframe>
             </div>
@@ -76,7 +81,8 @@
                     <div class="timeline-content">
                         <h3>Aug 2023 - May 2024</h3>
                         <h4>SDE Intern at Onlinesales.ai</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ut felis cursus ultricies.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ut felis cursus
+                            ultricies.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -84,7 +90,8 @@
                     <div class="timeline-content">
                         <h3>Jun 2025 - Present</h3>
                         <h4>SDE at Onlinesales.ai</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ut felis cursus ultricies.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ut felis cursus
+                            ultricies.</p>
                     </div>
                 </div>
             </div>
@@ -103,20 +110,27 @@
         </section>
 
         <section id="contact" class="contact">
-            <div class="contact-card">
-                <div class="contact-left">
-                    <h2>Prasad Borse</h2>
-                    <p>Email: <a href="mailto:prasadborse952@gmail.com">prasadborse952@gmail.com</a></p>
-                    <p>Phone: +91 7028597347</p>
-                    <p>Location: Pune, India</p>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/borseprasad/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/prasadborse02" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://x.com/luminary_lummox" target="_blank"><i class="fab fa-twitter"></i></a>
+            <div class="business-card" id="businessCard">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="left-box" id="flipTrigger">
+                            Prasad Borse
+                        </div>
+                        <div class="right-box">
+                            <h2>Software Developer</h2>
+                            <div class="bottom">
+                                <p>+91 7028597347</p>
+                                <p><a href="mailto:prasadborse952@gmail.com">prasadborse952@gmail.com</a></p>
+                                <br>
+                                <p>tempprasad.com</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-right">
-                    <img src="assests/temp.jpeg" alt="Prasad Borse">
+
+                    <!-- Back Side -->
+                    <div class="card-back" id="flipBack">
+                        "Totally didn't just slap this together with prompt engineering over the weekend."
+                    </div>
                 </div>
             </div>
         </section>
