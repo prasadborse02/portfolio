@@ -18,14 +18,25 @@
     <header>
         <nav>
             <div class="logo">Geek Nemesis</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects-posts">Projects & Posts</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle">🌙</button>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects-posts">Projects & Posts</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <div class="theme-switch-container">
+                        <span class="theme-switch-label">Theme</span>
+                        <div class="theme-switch" id="theme-toggle">
+                            <div class="slider"></div>
+                        </div>
+                    </div>
+                    <button id="resume-button">Download Resume</button>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -47,29 +58,17 @@
             <div class="about-content">
                 <h2>About Me</h2>
                 <p>
-                    Hey there! I’m Prasad, a software engineer who thrives on problem-solving, efficiency, and mastering
-                    fundamentals. I work primarily with Python and Node.js, building scalable systems, optimizing
-                    performance, and tackling complex backend challenges. Whether it’s data processing, APIs, or
-                    authentication flows, I enjoy breaking things down and making them better.
+                    Greetings! I'm Prasad, a software engineer with a deep passion for solving complex problems and creating efficient solutions. My expertise lies in backend development, where I work primarily with Python and Node.js. I specialize in building scalable systems, optimizing performance, and developing robust APIs that form the backbone of modern applications.
                 </p>
                 <p>
-                    But let’s step away from the keyboard for a moment—who am I outside of code?
+                    My journey in tech has been driven by a constant desire to learn and master the fundamentals. Whether it's architecting data processing pipelines or implementing secure authentication systems, I approach each challenge with a blend of analytical thinking and creative problem-solving.
                 </p>
                 <p>
-                    I’m someone who loves diving deep into tech, but also believes in balance. Whether it’s exploring
-                    music, tinkering with new ideas, or just enjoying a good conversation, I’m always up for something
-                    interesting.
+                    Beyond the world of code, I maintain a balanced perspective through my interests in technology trends, system design, and continuous learning. I believe in the power of collaboration and always look forward to engaging in meaningful discussions about innovative solutions and architectural patterns.
                 </p>
                 <p>
-                    Oh, and about that music—if you want to know my taste, just hit play on the card next to me.
+                    For a glimpse into my personality, <a href="https://youtu.be/xvFZjo5PgG0?si=zIYRCHiGVmsIQ68Z" target="_blank" class="music-link">here's something</a> that might surprise you.
                 </p>
-            </div>
-            <div class="spotify-card">
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC?utm_source=generator" width="320"
-                    height="80" frameborder="0" allowfullscreen
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                </iframe>
             </div>
         </section>
 
@@ -97,18 +96,6 @@
             </div>
         </section>
 
-        <section id="projects-posts" class="projects-posts">
-            <!-- <h2>Projects & Posts</h2> -->
-            <div class="projects">
-                <h3>Projects</h3>
-                <p>Showcase of my projects and work.</p>
-            </div>
-            <div class="blogs">
-                <h3>Blogs</h3>
-                <p>Sharing my knowledge and insights through blogs.</p>
-            </div>
-        </section>
-
         <section id="contact" class="contact">
             <div class="business-card" id="businessCard">
                 <div class="card-inner">
@@ -122,20 +109,23 @@
                                 <p>+91 7028597347</p>
                                 <p><a href="mailto:prasadborse952@gmail.com">prasadborse952@gmail.com</a></p>
                                 <br>
-                                <p>tempprasad.com</p>
+                                <p><a href="tempprasad.com">tempprasad.com</a></p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Back Side -->
                     <div class="card-back" id="flipBack">
-                        "Totally didn't just slap this together with prompt engineering over the weekend."
+                        Totally did just slap this together with prompt engineering over the weekend.
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <footer>
+        <p>© 2024 Geek Nemesis. All rights reserved.</p>
+    </footer>
     <script src="js/main.js"></script>
 </body>
 
