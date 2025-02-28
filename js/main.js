@@ -120,28 +120,25 @@ window.addEventListener('scroll', () => {
 // Project carousel data
 const carouselItems = [
     {
+        title: "shortUrl",
+        description: "An web application to shorten URLs and track click analytics. Built with Node.js, Express, Mysql, Redis, Kafka, and EJS. GitHub: <a href='https://github.com/prasadborse02/short-url' target='_blank'>View Source</a>",
+        link: "https://theprasad.tech/shortUrl/",
+        type: "Project",
+        tags: ["Node.js", "Redis", "MySql", "Kafka", "React"]
+    },
+    {
+        title: "Redshift vs BigQuery",
+        description: "A comprehensive comparison of Redshift and BigQuery, including performance, architecture, and use cases for data warehousing.",
+        link: "https://medium.com/@prasad-borse/introduction-to-redshift-bigquery-76f08730e65f",
+        type: "Blog",
+        tags: ["Data Engineering", "Redshift", "BigQuery"]
+    },
+    {
         title: "Portfolio Website",
         description: "A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Features dark mode, smooth animations, and dynamic content loading.",
         link: "https://github.com/prasadborse02/portfolio",
-        type: "project"
-    },
-    {
-        title: "Data Pipeline System",
-        description: "Developed robust data pipelines using Python, integrating BigQuery, Redshift, and MySQL for efficient data processing and analytics.",
-        link: "#",
-        type: "project"
-    },
-    {
-        title: "API Integration Framework",
-        description: "Created a scalable framework for integrating third-party APIs, including Google Ads and Facebook Graph API, with extensive documentation.",
-        link: "#",
-        type: "project"
-    },
-    {
-        title: "Event-Driven Android App",
-        description: "Architected an Android application using Kotlin and Firebase, implementing event-driven architecture and real-time updates.",
-        link: "#",
-        type: "project"
+        type: "Project",
+        tags: ["HTML", "CSS", "JavaScript"]
     }
 ];
 
@@ -190,7 +187,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-            <h3>${item.title}</h3>
+            <div class="card-header">
+                <h3>${item.title}</h3>
+                <span class="tag ${item.type.toLowerCase()}">${item.type}</span>
+            </div>
+            <div class="tag-container">
+                ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
             <p>${item.description}</p>
             <a href="${item.link}" target="_blank">Learn more →</a>
         `;
