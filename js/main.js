@@ -12,19 +12,33 @@ const navMenu = document.getElementById('nav-menu');
 const TYPING_SPEED = 50; // Increased speed (lower number = faster)
 let typingInProgress = false;
 
-// Enable dark theme by default
-// document.body.classList.add('dark-theme');
-// themeToggle.textContent = '☀️';
-// typewriterElement.textContent = darkText;
+// Theme management functions
+function setTheme(isDark) {
+    if (isDark) {
+        document.body.classList.add('dark-theme');
+        themeToggle.classList.add('dark');
+        typewriterElement.textContent = darkText;
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.body.classList.remove('dark-theme');
+        themeToggle.classList.remove('dark');
+        typewriterElement.textContent = lightText;
+        localStorage.setItem('theme', 'light');
+    }
+}
 
+// Initialize theme based on stored preference or default to dark
+const savedTheme = localStorage.getItem('theme') || 'dark';
+setTheme(savedTheme === 'dark');
+
+// Update theme toggle event listener
 themeToggle.addEventListener('click', () => {
-    themeToggle.classList.toggle('dark');
-    document.body.classList.toggle('dark-theme');
+    const isDark = !document.body.classList.contains('dark-theme');
+    setTheme(isDark);
     
-    // Only start new typing if previous one is complete
     if (!typingInProgress) {
         typewriterElement.textContent = '';
-        const newText = document.body.classList.contains('dark-theme') ? darkText : lightText;
+        const newText = isDark ? darkText : lightText;
         typeNewText(newText);
     }
 });
@@ -101,4 +115,112 @@ window.addEventListener('scroll', () => {
     if (window.innerWidth <= 768) {
         closeMenu();
     }
+});
+
+// Project carousel data
+const carouselItems = [
+    {
+        title: "shortUrl",
+        description: "An web application to shorten URLs and track click analytics. Built with Node.js, Express, Mysql, Redis, Kafka, and EJS. GitHub: <a href='https://github.com/prasadborse02/short-url' target='_blank'>View Source</a>",
+        link: "https://theprasad.tech/shortUrl/",
+        type: "Project",
+        tags: ["Node.js", "Redis", "MySql", "Kafka", "React"]
+    },
+    {
+        title: "Redshift vs BigQuery",
+        description: "A comprehensive comparison of Redshift and BigQuery, including performance, architecture, and use cases for data warehousing.",
+        link: "https://medium.com/@prasad-borse/introduction-to-redshift-bigquery-76f08730e65f",
+        type: "Blog",
+        tags: ["Data Engineering", "Redshift", "BigQuery"]
+    },
+    {
+        title: "Portfolio Website",
+        description: "A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Features dark mode, smooth animations, and dynamic content loading.",
+        link: "https://github.com/prasadborse02/portfolio",
+        type: "Project",
+        tags: ["HTML", "CSS", "JavaScript"]
+    }
+];
+
+// Initialize carousel
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselCards = document.querySelector('.carousel-cards');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    
+    if (!carouselCards || !prevButton || !nextButton) return;
+
+    let currentPosition = 0;
+    let cardWidth = 0;
+    let maxPosition = 0;
+
+    function updateCarouselMetrics() {
+        const card = document.querySelector('.card');
+        if (!card) return;
+        
+        cardWidth = card.offsetWidth + 20; // Include gap
+        let visibleCards;
+        if (window.innerWidth >= 1200) {
+            visibleCards = 3;
+        } else if (window.innerWidth >= 768) {
+            visibleCards = 2;
+        } else {
+            visibleCards = 1;
+        }
+        maxPosition = -(cardWidth * (carouselItems.length - visibleCards));
+    }
+
+    function updateCarousel(direction) {
+        updateCarouselMetrics();
+        
+        if (direction === 'next' && currentPosition > maxPosition) {
+            currentPosition = Math.max(maxPosition, currentPosition - cardWidth);
+        } else if (direction === 'prev' && currentPosition < 0) {
+            currentPosition = Math.min(0, currentPosition + cardWidth);
+        }
+        
+        carouselCards.style.transform = `translateX(${currentPosition}px)`;
+    }
+
+    // Create and append cards
+    carouselItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <div class="card-header">
+                <h3>${item.title}</h3>
+                <span class="tag ${item.type.toLowerCase()}">${item.type}</span>
+            </div>
+            <div class="tag-container">
+                ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
+            <p>${item.description}</p>
+            <a href="${item.link}" target="_blank">Learn more →</a>
+        `;
+        carouselCards.appendChild(card);
+    });
+
+    // Event listeners
+    prevButton.addEventListener('click', () => updateCarousel('prev'));
+    nextButton.addEventListener('click', () => updateCarousel('next'));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') updateCarousel('prev');
+        if (e.key === 'ArrowRight') updateCarousel('next');
+    });
+
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            currentPosition = 0;
+            carouselCards.style.transform = `translateX(0)`;
+            updateCarouselMetrics();
+        }, 100);
+    });
+
+    // Initial setup
+    updateCarouselMetrics();
 });
