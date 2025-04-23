@@ -120,6 +120,13 @@ window.addEventListener('scroll', () => {
 // Project carousel data
 const carouselItems = [
     {
+        title: "GroundPlay",
+        description: "A community-driven platform made to discover, create and join nearby games. Built with Kotlin, Spring Boot, PostgreSQL, and React. GitHub: <a href='https://github.com/prasadborse02/groundplay' target='_blank'>View Source</a>",
+        link: "https://theprasad.tech/groundplay/",
+        type: "Project",
+        tags: ["Kotlin", "Spring Boot", "PostgreSQL", "React"]
+    },
+    {
         title: "shortUrl",
         description: "An web application to shorten URLs and track click analytics. Built with Node.js, Express, Mysql, Redis, Kafka, and EJS. GitHub: <a href='https://github.com/prasadborse02/short-url' target='_blank'>View Source</a>",
         link: "https://theprasad.tech/shortUrl/",
